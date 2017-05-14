@@ -26,9 +26,14 @@ namespace Mars_Rover_Kata
 
         public void ExecuteCommand(char command)
         {
-            m_Y = 1;
+            if (command == 'F')
+            {
+                m_Y = 1;
+            }
+            else
+            {
+                m_Y = -1;
+            }
         }
-
-
     }
 }

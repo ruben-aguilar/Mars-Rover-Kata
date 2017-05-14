@@ -48,5 +48,14 @@ namespace RoverTests
             Assert.AreEqual(m_rover.Y, 1);
         }
 
+        [TestMethod]
+        public void GivenARoverInX0Y0AndInNorthDirection_WhenMoveBackwards_ItGoesToX0YMinus1()
+        {
+            m_rover.ExecuteCommand('B');
+
+            Assert.AreEqual(m_rover.X, 0);
+            Assert.AreEqual(m_rover.Y, -1);
+        }
+
     }
 }
