@@ -9,13 +9,17 @@ namespace Mars_Rover_Kata
 {
     public class Rover
     {
+        private const char NORTH_DIRECTION = 'N';
+        private const char FORWARD_COMMAND = 'F';
+
+        private char m_direction = NORTH_DIRECTION;
+
         private int m_X = 0;
         private int m_Y = 0;
-        private char m_direction = 'N';
 
-        public int X { get { return m_X; } }
-        public int Y { get { return m_Y; } }
-        public char Direction { get { return m_direction; } }
+        public int X => m_X;
+        public int Y => m_Y;
+        public char Direction => m_direction;
 
         public Rover(int x, int y, char direction)
         {
@@ -26,9 +30,9 @@ namespace Mars_Rover_Kata
 
         public void ExecuteCommand(char command)
         {
-            if (m_direction == 'N')
+            if (m_direction == NORTH_DIRECTION)
             {
-                if (command == 'F')
+                if (command == FORWARD_COMMAND)
                 {
                     m_Y++;
                 }
@@ -39,7 +43,7 @@ namespace Mars_Rover_Kata
             }
             else
             {
-                if (command == 'F')
+                if (command == FORWARD_COMMAND)
                 {
                     m_X = 1;
                 }
