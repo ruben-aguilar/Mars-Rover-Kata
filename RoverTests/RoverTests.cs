@@ -57,5 +57,16 @@ namespace RoverTests
             Assert.AreEqual(m_rover.Y, -1);
         }
 
+        [TestMethod]
+        public void GivenARoverInX0Y0AndInEastDirection_WhenMoveForward_ItGoesToX1Y0()
+        {
+            Rover rover = new Rover(0, 0, 'E');
+
+            rover.ExecuteCommand('F');
+
+            Assert.AreEqual(1, rover.X);
+            Assert.AreEqual(0, rover.Y);
+        }
+
     }
 }
