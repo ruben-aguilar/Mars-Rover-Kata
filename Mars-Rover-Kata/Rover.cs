@@ -34,7 +34,7 @@ namespace Mars_Rover_Kata
                 }
                 else
                 {
-                    m_Y = -1;
+                    m_Y--;
                 }
             }
             else

@@ -91,5 +91,16 @@ namespace RoverTests
             Assert.AreEqual(1, rover.X);
             Assert.AreEqual(2, rover.Y);
         }
+
+        [TestMethod]
+        public void GivenARoverInX1Y1InNorthDirection_WhenMoveBackwards_ItGoesToX1Y0()
+        {
+            Rover rover = new Rover(1, 1, 'N');
+
+            rover.ExecuteCommand(BACKWARD_COMMAND);
+
+            Assert.AreEqual(1, rover.X);
+            Assert.AreEqual(0, rover.Y);
+        }
     }
 }
