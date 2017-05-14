@@ -39,7 +39,14 @@ namespace Mars_Rover_Kata
             }
             else
             {
-                m_X = 1;
+                if (command == 'F')
+                {
+                    m_X = 1;
+                }
+                else
+                {
+                    m_X = -1;
+                }
             }
         }
     }

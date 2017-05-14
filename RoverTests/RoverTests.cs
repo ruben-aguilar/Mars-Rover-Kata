@@ -44,8 +44,8 @@ namespace RoverTests
         {
             m_rover.ExecuteCommand('F');
 
-            Assert.AreEqual(m_rover.X, 0);
-            Assert.AreEqual(m_rover.Y, 1);
+            Assert.AreEqual(0, m_rover.X);
+            Assert.AreEqual(1, m_rover.Y);
         }
 
         [TestMethod]
@@ -53,8 +53,8 @@ namespace RoverTests
         {
             m_rover.ExecuteCommand('B');
 
-            Assert.AreEqual(m_rover.X, 0);
-            Assert.AreEqual(m_rover.Y, -1);
+            Assert.AreEqual(0, m_rover.X);
+            Assert.AreEqual(-1, m_rover.Y);
         }
 
         [TestMethod]
@@ -68,5 +68,15 @@ namespace RoverTests
             Assert.AreEqual(0, rover.Y);
         }
 
+        [TestMethod]
+        public void GivenARoverInX0Y0InEastDirection_WhenMoveBackwards_ItGoesToXMinus1Y0()
+        {
+            Rover rover = new Rover(0, 0, 'E');
+
+            rover.ExecuteCommand('B');
+
+            Assert.AreEqual(-1, rover.X);
+            Assert.AreEqual(0, rover.Y);
+        }
     }
 }
