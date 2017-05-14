@@ -49,7 +49,7 @@ namespace Mars_Rover_Kata
                 }
                 else
                 {
-                    m_X = -1;
+                    m_X--;
                 }
             }
         }
