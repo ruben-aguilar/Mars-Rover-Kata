@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Mars_Rover_Kata;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,8 +12,8 @@ namespace RoverTests
     [TestClass]
     public class RoverTests
     {
-        private const char FORWARD_COMMAND = 'F';
-        private const char BACKWARD_COMMAND = 'B';
+        private const char GO_FORWARD = 'F';
+        private const char GO_BACKWARD = 'B';
         private Rover m_rover;
 
         [TestInitialize]
@@ -44,7 +45,7 @@ namespace RoverTests
         [TestMethod]
         public void GivenARoverInX0Y0AndInNorthDirection_WhenMoveForward_ItGoesToX0Y1()
         {
-            m_rover.ExecuteCommand(FORWARD_COMMAND);
+            m_rover.ExecuteCommand(GO_FORWARD);
 
             Assert.AreEqual(0, m_rover.X);
             Assert.AreEqual(1, m_rover.Y);
@@ -53,7 +54,7 @@ namespace RoverTests
         [TestMethod]
         public void GivenARoverInX0Y0AndInNorthDirection_WhenMoveBackwards_ItGoesToX0YMinus1()
         {
-            m_rover.ExecuteCommand(BACKWARD_COMMAND);
+            m_rover.ExecuteCommand(GO_BACKWARD);
 
             Assert.AreEqual(0, m_rover.X);
             Assert.AreEqual(-1, m_rover.Y);
@@ -64,7 +65,7 @@ namespace RoverTests
         {
             Rover rover = new Rover(0, 0, 'E');
 
-            rover.ExecuteCommand(FORWARD_COMMAND);
+            rover.ExecuteCommand(GO_FORWARD);
 
             Assert.AreEqual(1, rover.X);
             Assert.AreEqual(0, rover.Y);
@@ -75,7 +76,7 @@ namespace RoverTests
         {
             Rover rover = new Rover(0, 0, 'E');
 
-            rover.ExecuteCommand(BACKWARD_COMMAND);
+            rover.ExecuteCommand(GO_BACKWARD);
 
             Assert.AreEqual(-1, rover.X);
             Assert.AreEqual(0, rover.Y);
@@ -86,7 +87,7 @@ namespace RoverTests
         {
             Rover rover = new Rover(1, 1, 'N');
 
-            rover .ExecuteCommand(FORWARD_COMMAND);
+            rover .ExecuteCommand(GO_FORWARD);
 
             Assert.AreEqual(1, rover.X);
             Assert.AreEqual(2, rover.Y);
@@ -97,10 +98,21 @@ namespace RoverTests
         {
             Rover rover = new Rover(1, 1, 'N');
 
-            rover.ExecuteCommand(BACKWARD_COMMAND);
+            rover.ExecuteCommand(GO_BACKWARD);
 
             Assert.AreEqual(1, rover.X);
             Assert.AreEqual(0, rover.Y);
+        }
+
+        [TestMethod]
+        public void GivenARoverInX1Y1InEastDirection_WhenMoveForward_ItGoesToX2Y1()
+        {
+            Rover rover = new Rover(1, 1, 'E');
+
+            rover.ExecuteCommand(GO_FORWARD);
+
+            Assert.AreEqual(2, rover.X);
+            Assert.AreEqual(1, rover.Y);
         }
     }
 }

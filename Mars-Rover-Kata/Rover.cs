@@ -45,7 +45,7 @@ namespace Mars_Rover_Kata
             {
                 if (command == FORWARD_COMMAND)
                 {
-                    m_X = 1;
+                    m_X++;
                 }
                 else
                 {
